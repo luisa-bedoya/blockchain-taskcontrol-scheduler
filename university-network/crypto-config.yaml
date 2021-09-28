@@ -1,0 +1,67 @@
+# Autor: Luisa Bedoya, luisa.bedoya@correouniversity.edu.co
+# Date: 01-08-2021
+
+OrdererOrgs:
+    - Name: Orderer
+      Domain: university.com
+      EnableNodeOUs: true
+      Specs:
+        - Hostname: orderer
+          SANS:
+            - localhost
+PeerOrgs:
+    - Name: ComputerSciencesOrg
+      Domain: computersciencesorg.university.com
+      EnableNodeOUs: true
+      Template:
+        Count: 1
+        SANS:
+          - localhost
+      Users:
+        Count: 1
+    - Name: ExactSciencesOrg
+      Domain: exactsciencesorg.university.com
+      EnableNodeOUs: true
+      Template:
+        Count: 1
+        SANS:
+          - localhost
+      Users:
+        Count: 1
+    - Name: EngineeringOrg
+      Domain: engineeringorg.university.com
+      EnableNodeOUs: true    
+      Template:
+        Count: 1
+        SANS:
+          - localhost
+      Users:
+        Count: 1
+    - Name: ResearchOrg
+      Domain: researchorg.university.com
+      EnableNodeOUs: true    
+      Template:
+        Count: 1
+        SANS:
+          - localhost
+      Users:
+        Count: 1
+    - Name: ChemicalOrg
+      Domain: chemicalorg.university.com
+      EnableNodeOUs: true    
+      Template:
+        Count: 1
+        SANS:
+          - localhost
+      Users:
+        Count: 1
+    - Name: StatisticsOrg
+      Domain: statisticsorg.university.com
+      EnableNodeOUs: true
+      Template:
+        Count: 1
+        SANS:
+          - localhost
+      Users:
+        Count: 1
+  

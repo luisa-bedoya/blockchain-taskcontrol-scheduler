@@ -1,0 +1,310 @@
+# Autor: Luisa Bedoya, luisa.bedoya@correounivalle.edu.co
+# Date: 01-08-2021
+#
+---
+    ################################################################################
+    #   Section: Organizations
+    ################################################################################
+    Organizations:
+    
+        - &OrdererOrg
+            Name: OrdererOrg
+            ID: OrdererMSP
+            MSPDir: crypto-config/ordererOrganizations/university.com/msp
+            Policies:
+                Readers:
+                    Type: Signature
+                    Rule: "OR('OrdererMSP.member')"
+                Writers:
+                    Type: Signature
+                    Rule: "OR('OrdererMSP.member')"
+                Admins:
+                    Type: Signature
+                    Rule: "OR('OrdererMSP.admin')"
+            OrdererEndpoints:
+                - orderer.university.com:7050
+    
+        - &ComputerSciencesOrg
+            Name: ComputerSciencesOrgMSP
+            ID: ComputerSciencesOrgMSP
+            MSPDir: crypto-config/peerOrganizations/computersciencesorg.university.com/msp
+            Policies:
+                Readers:
+                    Type: Signature
+                    Rule: "OR('ComputerSciencesOrgMSP.admin', 'ComputerSciencesOrgMSP.peer', 'ComputerSciencesOrgMSP.client')"
+                Writers:
+                    Type: Signature
+                    Rule: "OR('ComputerSciencesOrgMSP.admin', 'ComputerSciencesOrgMSP.client')"
+                Admins:
+                    Type: Signature
+                    Rule: "OR('ComputerSciencesOrgMSP.admin')"
+                Endorsement:
+                    Type: Signature
+                    Rule: "OR('ComputerSciencesOrgMSP.peer')"
+            AnchorPeers:
+                - Host: peer0.computersciencesorg.university.com
+                  Port: 7051
+    
+        - &ExactSciencesOrg
+            Name: ExactSciencesOrgMSP
+            ID: ExactSciencesOrgMSP
+            MSPDir: crypto-config/peerOrganizations/exactsciencesorg.university.com/msp
+            Policies:
+                Readers:
+                    Type: Signature
+                    Rule: "OR('ExactSciencesOrgMSP.admin', 'ExactSciencesOrgMSP.peer', 'ExactSciencesOrgMSP.client')"
+                Writers:
+                    Type: Signature
+                    Rule: "OR('ExactSciencesOrgMSP.admin', 'ExactSciencesOrgMSP.client')"
+                Admins:
+                    Type: Signature
+                    Rule: "OR('ExactSciencesOrgMSP.admin')"
+                Endorsement:
+                    Type: Signature
+                    Rule: "OR('ExactSciencesOrgMSP.peer')"
+            AnchorPeers:
+                - Host: peer0.exactsciencesorg.university.com
+                  Port: 7051
+    
+        - &EngineeringOrg
+            Name: EngineeringOrgMSP
+            ID: EngineeringOrgMSP
+            MSPDir: crypto-config/peerOrganizations/engineeringorg.university.com/msp
+            Policies:
+                Readers:
+                    Type: Signature
+                    Rule: "OR('EngineeringOrgMSP.admin', 'EngineeringOrgMSP.peer', 'EngineeringOrgMSP.client')"
+                Writers:
+                    Type: Signature
+                    Rule: "OR('EngineeringOrgMSP.admin', 'EngineeringOrgMSP.client')"
+                Admins:
+                    Type: Signature
+                    Rule: "OR('EngineeringOrgMSP.admin')"
+                Endorsement:
+                    Type: Signature
+                    Rule: "OR('EngineeringOrgMSP.peer')"
+            AnchorPeers:
+                - Host: peer0.engineeringorg.university.com
+                  Port: 7051
+        - &ResearchOrg
+            Name: ResearchOrgMSP
+            ID: ResearchOrgMSP
+            MSPDir: crypto-config/peerOrganizations/researchorg.university.com/msp
+            Policies:
+                Readers:
+                    Type: Signature
+                    Rule: "OR('ResearchOrgMSP.admin', 'ResearchOrgMSP.peer', 'ResearchOrgMSP.client')"
+                Writers:
+                    Type: Signature
+                    Rule: "OR('ResearchOrgMSP.admin', 'ResearchOrgMSP.client')"
+                Admins:
+                    Type: Signature
+                    Rule: "OR('ResearchOrgMSP.admin')"
+                Endorsement:
+                    Type: Signature
+                    Rule: "OR('ResearchOrgMSP.peer')"
+            AnchorPeers:
+                - Host: peer0.researchorg.university.com
+                  Port: 7051
+
+        - &ChemicalOrg
+            Name: ChemicalOrgMSP
+            ID: ChemicalOrgMSP
+            MSPDir: crypto-config/peerOrganizations/chemicalorg.university.com/msp
+            Policies:
+                Readers:
+                    Type: Signature
+                    Rule: "OR('ChemicalOrgMSP.admin', 'ChemicalOrgMSP.peer', 'ChemicalOrgMSP.client')"
+                Writers:
+                    Type: Signature
+                    Rule: "OR('ChemicalOrgMSP.admin', 'ChemicalOrgMSP.client')"
+                Admins:
+                    Type: Signature
+                    Rule: "OR('ChemicalOrgMSP.admin')"
+                Endorsement:
+                    Type: Signature
+                    Rule: "OR('ChemicalOrgMSP.peer')"
+            AnchorPeers:
+                - Host: peer0.chemicalorg.university.com
+                  Port: 7051
+
+        - &StatisticsOrg
+            Name: StatisticsOrgMSP
+            ID: StatisticsOrgMSP
+            MSPDir: crypto-config/peerOrganizations/statisticsorg.university.com/msp
+            Policies:
+                Readers:
+                    Type: Signature
+                    Rule: "OR('StatisticsOrgMSP.admin', 'StatisticsOrgMSP.peer', 'StatisticsOrgMSP.client')"
+                Writers:
+                    Type: Signature
+                    Rule: "OR('StatisticsOrgMSP.admin', 'StatisticsOrgMSP.client')"
+                Admins:
+                    Type: Signature
+                    Rule: "OR('StatisticsOrgMSP.admin')"
+                Endorsement:
+                    Type: Signature
+                    Rule: "OR('StatisticsOrgMSP.peer')"
+            AnchorPeers:
+                - Host: peer0.statisticsorg.university.com
+                  Port: 7051
+
+    ################################################################################
+    #   SECTION: Capabilities
+    ################################################################################
+    Capabilities:
+        Channel: &ChannelCapabilities
+            V2_0: true
+    
+        Orderer: &OrdererCapabilities
+            V2_0: true
+    
+        Application: &ApplicationCapabilities
+            V2_0: true        
+    
+    ################################################################################
+    #   SECTION: Application
+    ################################################################################
+    Application: &ApplicationDefaults
+    
+        # Organizations is the list of orgs which are defined as participants on
+        # the application side of the network
+        Organizations:
+    
+        # Policies defines the set of policies at this level of the config tree
+        # For Application policies, their canonical path is
+        #   /Channel/Application/<PolicyName>
+        Policies:
+            Readers:
+                Type: ImplicitMeta
+                Rule: "ANY Readers"
+            Writers:
+                Type: ImplicitMeta
+                Rule: "ANY Writers"
+            Admins:
+                Type: ImplicitMeta
+                Rule: "MAJORITY Admins"
+            LifecycleEndorsement:
+                Type: ImplicitMeta
+                Rule: "ANY Endorsement"
+            Endorsement:
+                Type: ImplicitMeta  
+                Rule: "ANY Endorsement"
+    
+        Capabilities:
+            <<: *ApplicationCapabilities    
+    
+    ################################################################################
+    #   SECTION: Orderer
+    ################################################################################
+    Orderer: &OrdererDefaults
+        # Orderer Type: The orderer implementation to start
+        OrdererType: solo
+    
+    #    OrdererType: etcdraft
+    
+        EtcdRaft:
+            Consenters:
+            - Host: orderer.university.com
+              Port: 7050
+              ClientTLSCert: ../organizations/ordererOrganizations/university.com/orderers/orderer.university.com/tls/server.crt
+              ServerTLSCert: ../organizations/ordererOrganizations/university.com/orderers/orderer.university.com/tls/server.crt
+    
+        Addresses:
+            - orderer.university.com:7050
+        BatchTimeout: 2s
+        BatchSize:
+            MaxMessageCount: 10
+            AbsoluteMaxBytes: 99 MB
+            PreferredMaxBytes: 512 KB
+    
+        Kafka:
+            Brokers:
+                - 127.0.0.1:9092
+        Organizations:
+    
+        Policies:
+            Readers:
+                Type: ImplicitMeta
+                Rule: "ANY Readers"
+            Writers:
+                Type: ImplicitMeta
+                Rule: "ANY Writers"
+            Admins:
+                Type: ImplicitMeta
+                Rule: "MAJORITY Admins"
+            # BlockValidation specifies what signatures must be included in the block
+            # from the orderer for the peer to validate it.
+            BlockValidation:
+                Type: ImplicitMeta
+                Rule: "ANY Writers"
+    
+    ################################################################################
+    #
+    #   CHANNEL
+    #
+    #   This section defines the values to encode into a config transaction or
+    #   genesis block for channel related parameters.
+    #
+    ################################################################################
+    Channel: &ChannelDefaults
+        # Policies defines the set of policies at this level of the config tree
+        # For Channel policies, their canonical path is
+        #   /Channel/<PolicyName>
+        Policies:
+            # Who may invoke the 'Deliver' API
+            Readers:
+                Type: ImplicitMeta
+                Rule: "ANY Readers"
+            # Who may invoke the 'Broadcast' API
+            Writers:
+                Type: ImplicitMeta
+                Rule: "ANY Writers"
+            # By default, who may modify elements at this config level
+            Admins:
+                Type: ImplicitMeta
+                Rule: "MAJORITY Admins"
+    
+        # Capabilities describes the channel level capabilities, see the
+        # dedicated Capabilities section elsewhere in this file for a full
+        # description
+        Capabilities:
+            <<: *ChannelCapabilities
+    
+    ################################################################################
+    #   Profile
+    ################################################################################
+    Profiles:
+    
+        OrgsOrdererGenesis:
+            <<: *ChannelDefaults
+            Orderer:
+                <<: *OrdererDefaults
+                Organizations:
+                    - *OrdererOrg
+                Capabilities:
+                    <<: *OrdererCapabilities
+            Consortiums:
+                SampleConsortium:
+                    Organizations:
+                        - *ComputerSciencesOrg
+                        - *ExactSciencesOrg
+                        - *EngineeringOrg
+                        - *ResearchOrg
+                        - *ChemicalOrg
+                        - *StatisticsOrg
+        OrgsChannel:
+            Consortium: SampleConsortium
+            <<: *ChannelDefaults
+            Application:
+                <<: *ApplicationDefaults
+                Organizations:
+                    - *ComputerSciencesOrg
+                    - *ExactSciencesOrg
+                    - *EngineeringOrg
+                    - *ResearchOrg
+                    - *ChemicalOrg
+                    - *StatisticsOrg
+                Capabilities:
+                    <<: *ApplicationCapabilities
+    
